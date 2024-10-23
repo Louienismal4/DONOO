@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  opacity: 0; /* Initial state for fade-in */
+  animation: fadeIn 1s forwards; /* Apply fade-in animation */
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.menu-icon {
+  color: #4a5b33;
+}
+
+.card-header h3 {
+  margin: 0;
+  top: 5px;
+  position: relative;
+  left: 5px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 17px;
+  font-weight: normal;
+  color: #606060;
+}
+
+.card p {
+  position: relative;
+  padding: 0 25px;
+  font-family: 'Inter', sans-serif;
+  top: 5px;
+  text-justify: auto;
+  font-size: 13px;
+  width: 530px;
+  word-wrap: break-word;
+  text-align: justify;
+  font-weight: normal;
+  color: #666;
+}
+
+.card-image {
+  width: 100%;
+  height: 425px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey; /* Default background color */
+  background-size: cover;
+  background-blend-mode: multiply;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0; /* Initial fade-in */
+}
+
+.card-image.unblur {
+  opacity: 1;
+}
+
+.card-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.card-footer i {
+  color: red;
+}
+
+.card-footer span {
+  margin-left: 10px;
+  position: relative;
+  font-size: 16px;
+  right: 505px;
+}
+
+.card-image-container:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.card-image-container {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.more-button {
+  background-color: #68836e;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.more-button:hover {
+  background-color: #7D9B83;
+}
+
+.see-more {
+  color: #68836e;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.see-more:hover {
+  text-decoration: underline;
+  color: #4a5b33;
+}
+
+.extra-info {
+  margin-top: 30px;
+  padding: 0px 25px; /* Add some padding for alignment */
+  font-size: 13px;
+  color: #333;
+}
+
+.extra-info-item {
+  display: flex;
+  
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.extra-info-item img.icon {
+  width: 24px;   /* Set the size of the icon */
+  height: 24px;
+
+}
+
+.extra-info-item p {
+  margin-left: 10px; /* Spacing between icon and text */
+}

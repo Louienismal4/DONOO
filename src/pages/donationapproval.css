@@ -1,0 +1,112 @@
+/* General styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4a5b32;
+  color: white;
+  padding: 10px;
+  height: 70px;
+}
+
+.header h1 {
+  font-size: 30px;
+  letter-spacing: 2px;
+  padding: 20px 10px;
+  margin-top: 5px;
+  font-weight: normal;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #ffcc80;
+  border-radius: 50%;
+}
+
+/* Donor list styles */
+.donor-list {
+  margin-top: 80px;
+}
+
+.donor-item {
+  background-color: #f2f2f2;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: max-height 0.3s ease;
+}
+
+.donor-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.donor-info span {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.view-button {
+  background-color: #4a5b32;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.view-button:hover {
+  background-color: #3b4a29;
+}
+
+/* Expanded state */
+.expanded {
+  background-color: #e6e6e6;
+}
+
+.donor-details {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .donor-info span {
+    font-size: 16px;
+  }
+
+  .view-button {
+    padding: 8px 15px;
+  }
+
+  .donor-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .donor-info {
+    flex-direction: column;
+  }
+
+  .donor-details {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}

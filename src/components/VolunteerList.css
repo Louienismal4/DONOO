@@ -1,0 +1,20 @@
+
+/* VolunteerList.css */
+.volunteer-list {
+  display: flex;                   /* Use flexbox for layout */
+  flex-direction: column;          /* Stack cards vertically */
+  align-items: center;             /* Center cards horizontally */
+  padding: 20px;                   /* Add padding to the container */
+  gap: 20px;                       /* Space between cards */
+}
+
+/* Remove the media query to ensure the cards stay in a single column */
+  
+  @media (min-width: 600px) {
+    .volunteer-list {
+      flex-direction: row;          /* Change to row on larger screens */
+      flex-wrap: wrap;              /* Allow cards to wrap */
+      justify-content: center;       /* Center cards horizontally */
+    }
+  }
+  

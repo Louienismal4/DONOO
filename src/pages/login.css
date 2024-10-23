@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Inter:wght@400;700&display=swap");
+/* App.css */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+.label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: black;
+}
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+.left-section {
+  flex: 1;
+  position: relative;
+}
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.overlay {
+  position: absolute;
+  top: 50%;
+  font-family: "Kanit", sans-serif;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 5.5rem;
+  letter-spacing: 0.5rem;
+}
+.right-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+}
+.login-box {
+  width: 450px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  font-family: "Kanit", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+h2 {
+  margin-top: 15px;
+  font-family: "Inter", sans-serif;
+  font-size: 40px;
+  color: #2f5e2f;
+  font-weight: normal;
+  text-align: center;
+}
+p {
+  font-family: "Inter", sans-serif;
+  margin-top: -15px;
+  text-align: center;
+  color: gray;
+}
+.input-group {
+  background-color: white;
+  margin-bottom: 20px;
+}
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  height: 40px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white; /* Set input background to white */
+  color: black; /* Ensure the text color is black for readability */
+}
+button {
+  width: 20%;
+  padding: 10px;
+  background-color: #2f5e2f;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #3a6e3a;
+}
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #a6a6a6;
+  margin-left: 60px;
+  justify-content: flex-start;
+  width: 100%;
+}
+.remember-me input {
+  margin-right: 10px;
+}
+
+/* Fancy input styles */
+.wave-group-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wave-group {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%; /* Adjust the width as needed */
+  max-width: 350px; /* Optional: set a max-width */
+}
+
+.wave-group .input {
+  font-size: 16px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #a6a6a6;
+  background: transparent;
+}
+
+.wave-group .input:focus {
+  outline: none;
+}
+
+.wave-group .label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  display: flex;
+}
+
+.wave-group .label-char {
+  transition: 0.2s ease all;
+  transition-delay: calc(var(--index) * 0.05s);
+}
+
+.wave-group .input:focus ~ .label .label-char,
+.wave-group .input:valid ~ .label .label-char {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #5264ae;
+}
+
+/* Fancy input styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wave-group .bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.wave-group .bar:before,
+.wave-group .bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264ae;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+  left: 50%;
+}
+
+.wave-group .bar:after {
+  right: 50%;
+}
+
+.wave-group .input:focus ~ .bar:before,
+.wave-group .input:focus ~ .bar:after {
+  width: 50%;
+}

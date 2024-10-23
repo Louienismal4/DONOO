@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Inter:wght@400;700&display=swap');
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Optional: Adds a slight move from top effect */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.post-creation-wrapper.fade-out {
+  animation: fadeOut 0.5s ease-out forwards; /* Ensure it runs only when fading out */
+}
+
+
+/* Main wrapper for post creation panel */
+.post-creation-wrapper {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.post-panel { 
+  position: relative;
+  animation: fadeIn 0.5s ease-out;
+  
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.title-input,
+.description-input {
+  background-color: #f1f1f1;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.description-input {
+  height: 100px;
+  resize: none;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+.image-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.inputs .input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f1f1f1;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.inputs input {
+  border: none;
+  height: 20px;
+  background: none;
+  width: 100%;
+}
+
+.post-button {
+  background-color: #375428;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 20px;
+  width: 150px;
+  margin: 0 auto;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Add Photo button styling */
+.image-upload-button {
+  display: inline-block;
+  background-color: #375428; /* Green background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding */
+  border-radius: 30px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.image-upload-button input {
+  display: none; /* Hide the actual file input */
+}
+
+/* Crop Image button styling */
+.crop-button {
+  display: inline-block;
+  background-color: #375428;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 160px;
+  height: 40px;
+  font-family: 'Kanit', sans-serif;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.crop-button:hover {
+  background-color: #2b4a36; /* Darker green on hover */
+}
+
+/* Replace Photo button styling */
+.replace-button {
+  display: inline-block;
+  background-color: #a53d3d; /* Red background for replace */
+  color: white;
+  padding: 5px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 160px;
+  height: 40px;
+  font-family: 'Kanit', sans-serif;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.replace-button:hover {
+  background-color: #8a3333; /* Darker red on hover */
+}
+
+.create-button {
+  background-color: #7d9b83;
+  color: #ffffff;
+  padding: 10px 20px;
+  margin-right: 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.create-button:hover {
+  background-color: #6b8769;
+}
+
+/* Close button */
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+.close-button:hover {
+  color: #ccc;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Adjusting the layout of the buttons */
+.cropped-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.post-creation-wrapper .uppy-Dashboard .uppy-Dashboard-inner {
+  max-height: 100px; /* Adjust the height as needed */
+  overflow-y: auto;  /* Enable vertical scrolling if content overflows */
+}
