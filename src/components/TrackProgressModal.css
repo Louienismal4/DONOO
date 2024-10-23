@@ -1,0 +1,107 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: linear-gradient(to bottom, white 45%, #2f4f2f 30%);
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 700px;
+  height: 400px;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.3s ease-out; /* Add animation here */
+}
+
+.close-button {
+  position: absolute;
+  top: 5px; /* Adjusted position */
+  right: 10px; /* Adjusted position */
+  font-size: 25px; /* Adjusted size */
+  color: black;
+  cursor: pointer;
+  width: 60px;
+  height: auto;
+  background-color: white;
+}
+
+/* Remove the hover effect */
+.close-button:hover {
+  background: none; /* or any other property you want to reset */
+}
+
+.modal-title {
+  font-size: 18px; /* Updated to match image font size */
+  color: #005f0f;
+  text-align: left;
+}
+
+.track-id-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 2px solid #2f4f2f; /* Lighter border for input */
+  background-color: #fff; /* White input background */
+  color: black;
+  font-size: 14px;
+  text-align: center;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.circle {
+  margin-top: 20px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #b0b0b0; /* Gray color for inactive steps */
+  margin-bottom: 8px;
+}
+
+.progress-step.active .circle {
+  background-color: #4caf50; /* Green for active step */
+}
+
+.progress-step span {
+  margin-top: 50px;
+  color: #e6ffe6; /* Updated font color for progress text */
+  font-size: 16px;
+}
+.enter-button {
+  display: block;
+  width: 40%; /* Adjust width as needed */
+  padding: 10px;
+  margin: 10px auto; /* Center the button horizontally */
+  background-color: #2f4f2f; /* Green background */
+  color: white; /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+.enter-button:hover {
+  background-color: rgb(56, 125, 59); /* Darker green on hover */
+}
