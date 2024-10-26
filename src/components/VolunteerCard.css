@@ -66,6 +66,7 @@
   background-blend-mode: multiply;
   transition: opacity 0.5s ease-in-out;
   opacity: 0; /* Initial fade-in */
+  margin-top: 15px;
 }
 
 .card-image.unblur {
@@ -161,6 +162,7 @@
   height: 20px;
   margin-right: -45px;
 }
+
 .card-footer .like-icon {
   width: 30px; /* Increased size */
   height: 30px; /* Increased size */
