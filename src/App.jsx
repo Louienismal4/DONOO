@@ -43,7 +43,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />{" "}
+        <Route path="/" element={<Navigate to="/landingpage" />} />{" "}
         {/* Redirect root to Homepage */}
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
