@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './AdminDashboard.css';
-import PostCreationPanel from '../components/PostCreationPanel';
-import VolunteerList from '../components/VolunteerList';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./AdminDashboard.css";
+import PostCreationPanel from "../components/PostCreationPanel";
+import VolunteerList from "../components/VolunteerList";
 
 function AdminDashboard({ handleLogout }) {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
@@ -10,26 +10,31 @@ function AdminDashboard({ handleLogout }) {
   const navigate = useNavigate();
 
   const handleCreateClick = () => {
-    setIsPanelOpen(prevState => !prevState);
+    setIsPanelOpen((prevState) => !prevState);
   };
 
   const handleAvatarClick = () => {
-    setIsDropdownOpen(prevState => !prevState);
+    setIsDropdownOpen((prevState) => !prevState);
   };
 
   const handleApprovalClick = () => {
-    navigate('/donationapproval'); // Ensure the path matches the route defined in App.jsx
+    navigate("/donationapproval"); // Ensure the path matches the route defined in App.jsx
   };
 
   return (
     <>
-      <Header 
-        onCreateClick={handleCreateClick} 
-        onAvatarClick={handleAvatarClick} 
-        onApprovalClick={handleApprovalClick} 
+      <Header
+        onCreateClick={handleCreateClick}
+        onAvatarClick={handleAvatarClick}
+        onApprovalClick={handleApprovalClick}
       />
       <div className="landing-page">
-        {isPanelOpen && <PostCreationPanel isVisible={isPanelOpen} onClose={() => setIsPanelOpen(false)} />}
+        {isPanelOpen && (
+          <PostCreationPanel
+            isVisible={isPanelOpen}
+            onClose={() => setIsPanelOpen(false)}
+          />
+        )}
         <div className="background-section"></div>
         <div className="content">
           <VolunteerList />
@@ -49,7 +54,7 @@ function Header({ onCreateClick, onAvatarClick, onApprovalClick }) {
     <header className="header">
       <div className="logo">DONOPH</div>
       <div className="profile-section">
-        <button className='donation-approval' onClick={onApprovalClick}>
+        <button className="donation-approval" onClick={onApprovalClick}>
           Approval
         </button>
         <button className="create-button" onClick={onCreateClick}>

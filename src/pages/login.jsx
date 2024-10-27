@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { supabase } from '../supabaseClient'; // Import the Supabase client
+import { supabase } from "../supabaseClient"; // Import the Supabase client
 import "./login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,11 +53,21 @@ function Login() {
               />
               <span className="bar"></span>
               <label className="label">
-                <span className="label-char" style={{ "--index": 0 }}>E</span>
-                <span className="label-char" style={{ "--index": 1 }}>m</span>
-                <span className="label-char" style={{ "--index": 2 }}>a</span>
-                <span className="label-char" style={{ "--index": 3 }}>i</span>
-                <span className="label-char" style={{ "--index": 4 }}>l</span>
+                <span className="label-char" style={{ "--index": 0 }}>
+                  E
+                </span>
+                <span className="label-char" style={{ "--index": 1 }}>
+                  m
+                </span>
+                <span className="label-char" style={{ "--index": 2 }}>
+                  a
+                </span>
+                <span className="label-char" style={{ "--index": 3 }}>
+                  i
+                </span>
+                <span className="label-char" style={{ "--index": 4 }}>
+                  l
+                </span>
               </label>
             </div>
             <div className="wave-group">
@@ -71,14 +80,30 @@ function Login() {
               />
               <span className="bar"></span>
               <label className="label">
-                <span className="label-char" style={{ "--index": 0 }}>P</span>
-                <span className="label-char" style={{ "--index": 1 }}>a</span>
-                <span className="label-char" style={{ "--index": 2 }}>s</span>
-                <span className="label-char" style={{ "--index": 3 }}>s</span>
-                <span className="label-char" style={{ "--index": 4 }}>w</span>
-                <span className="label-char" style={{ "--index": 5 }}>o</span>
-                <span className="label-char" style={{ "--index": 6 }}>r</span>
-                <span className="label-char" style={{ "--index": 7 }}>d</span>
+                <span className="label-char" style={{ "--index": 0 }}>
+                  P
+                </span>
+                <span className="label-char" style={{ "--index": 1 }}>
+                  a
+                </span>
+                <span className="label-char" style={{ "--index": 2 }}>
+                  s
+                </span>
+                <span className="label-char" style={{ "--index": 3 }}>
+                  s
+                </span>
+                <span className="label-char" style={{ "--index": 4 }}>
+                  w
+                </span>
+                <span className="label-char" style={{ "--index": 5 }}>
+                  o
+                </span>
+                <span className="label-char" style={{ "--index": 6 }}>
+                  r
+                </span>
+                <span className="label-char" style={{ "--index": 7 }}>
+                  d
+                </span>
               </label>
             </div>
             <div className="remember-me">

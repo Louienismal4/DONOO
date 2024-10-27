@@ -4,6 +4,7 @@ import { supabase } from "../supabaseClient";
 import { useLocation } from "react-router-dom";
 import "./VolunteerCard.css";
 import AlertDialog from "./AlertDialog";
+import EditPostModal from "./EditPostModal"; // Import the EditPostModal component
 
 const lightenColor = (hex, percent) => {
   const num = parseInt(hex.slice(1), 16),
@@ -42,6 +43,7 @@ function VolunteerCard({
   const [showMenu, setShowMenu] = useState(false); // State to toggle dropdown menu visibility
   const locations = useLocation();
   const [showAlertDialog, setShowAlertDialog] = useState(false); // State for the alert dialog  const [showAlertDialog, setShowAlertDialog] = useState(false); // State for the alert dialog
+  const [showEditModal, setShowEditModal] = useState(false); // State to control the edit modal visibility
 
   const checkAdminStatus = async () => {
     try {
@@ -124,12 +126,6 @@ function VolunteerCard({
   const handleMenuClick = () => {
     setShowMenu(!showMenu); // Toggle the visibility of the menu
   };
-
-  const handleEdit = () => {
-    console.log("Edit post", id); // Handle the edit functionality here
-    setShowMenu(false); // Hide the menu after selecting
-  };
-
   const handleDelete = async () => {
     try {
       const { error } = await supabase.from("posts").delete().eq("id", id);
@@ -151,6 +147,39 @@ function VolunteerCard({
   const confirmDelete = () => {
     handleDelete(); // Call the delete function
     setShowAlertDialog(false); // Close the alert dialog
+  };
+
+  const handleEdit = () => {
+    setShowEditModal(true); // Show the edit modal
+    setShowMenu(false); // Hide the menu after selecting
+  };
+
+  const handleSaveEdit = async (
+    postId,
+    newTitle,
+    newDescription,
+    newLocation,
+    newEmail,
+    newContact
+  ) => {
+    try {
+      const { data, error } = await supabase
+        .from("posts")
+        .update({
+          title: newTitle,
+          description: newDescription,
+          location: newLocation,
+          contact: newContact,
+          email: newEmail,
+        })
+        .eq("id", postId);
+
+      if (error) throw error;
+
+      console.log("Post updated successfully", data);
+    } catch (err) {
+      console.error("Error updating post:", err);
+    }
   };
 
   // Define the valid admin pages
@@ -196,6 +225,17 @@ function VolunteerCard({
           {isExpanded ? "See less" : "See more"}
         </span>
       </p>
+      <EditPostModal
+        isOpen={showEditModal}
+        onClose={() => setShowEditModal(false)}
+        postId={id}
+        currentTitle={title}
+        currentDescription={description}
+        currentContact={contact}
+        currentEmail={email}
+        currentLocation={location}
+        onSave={handleSaveEdit}
+      />
       {isExpanded && (
         <div className="extra-info">
           <div className="extra-info-item">
