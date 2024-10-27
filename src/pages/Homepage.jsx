@@ -27,11 +27,7 @@ function LandingPage() {
           <a href="/landingpage">Contact Us</a>
           <button onClick={onTrackProgressClick}>Track Progress</button>
         </nav>
-        <div className="profile-section">
-          <div className="avatar">
-            <img src="https://placehold.co/40x40" alt="Profile" />
-          </div>
-        </div>
+        <button className="nav-btn1">Donate</button>
       </header>
     );
   }
