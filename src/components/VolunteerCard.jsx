@@ -3,6 +3,7 @@ import Vibrant from "node-vibrant/lib/bundle";
 import { supabase } from "../supabaseClient";
 import { useLocation } from "react-router-dom";
 import "./VolunteerCard.css";
+import AlertDialog from "./AlertDialog";
 
 const lightenColor = (hex, percent) => {
   const num = parseInt(hex.slice(1), 16),
@@ -40,6 +41,7 @@ function VolunteerCard({
   const [isAdmin, setIsAdmin] = useState(false);
   const [showMenu, setShowMenu] = useState(false); // State to toggle dropdown menu visibility
   const locations = useLocation();
+  const [showAlertDialog, setShowAlertDialog] = useState(false); // State for the alert dialog  const [showAlertDialog, setShowAlertDialog] = useState(false); // State for the alert dialog
 
   const checkAdminStatus = async () => {
     try {
@@ -146,6 +148,11 @@ function VolunteerCard({
     setShowMenu(false); // Hide the menu after selecting
   };
 
+  const confirmDelete = () => {
+    handleDelete(); // Call the delete function
+    setShowAlertDialog(false); // Close the alert dialog
+  };
+
   // Define the valid admin pages
   const validAdminPages = ["/admindashboard"];
 
@@ -165,7 +172,10 @@ function VolunteerCard({
                     <div className="menu-option-edit" onClick={handleEdit}>
                       Edit Post
                     </div>
-                    <div className="menu-option-delete" onClick={handleDelete}>
+                    <div
+                      className="menu-option-delete"
+                      onClick={() => setShowAlertDialog(true)} // Show alert dialog on delete click
+                    >
                       Delete Post
                     </div>
                   </div>
@@ -223,6 +233,14 @@ function VolunteerCard({
         />
         <span>{likeCount}</span>
       </div>
+      {showAlertDialog && (
+        <AlertDialog
+          message="Are you sure you want to delete this post?"
+          paragraph="This action cannot be undone. This will permanently delete this post."
+          onConfirm={confirmDelete}
+          onCancel={() => setShowAlertDialog(false)} // Close the alert dialog
+        />
+      )}
     </div>
   );
 }

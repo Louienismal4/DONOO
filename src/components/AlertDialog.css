@@ -1,0 +1,85 @@
+/* AlertDialog.css */
+.alert-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Slightly darker overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.alert-dialog-content {
+  background-color: white; /* Dark background similar to the image */
+  color: #375428; /* White text */
+  padding: 24px;
+  border-radius: 8px;
+  text-align: left;
+  height: auto;
+  max-width: 700px;
+  width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.alert-dialog-content h4 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+.alert-p {
+  margin-top: 10px;
+  margin-left: -25px;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+.alert-dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+.alert-dialog-buttons button {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.alert-dialog-buttons button:first-of-type {
+  background-color: rgb(218, 218, 218); /* Grey background for cancel button */
+  color: black;
+}
+.alert-dialog-buttons button:first-of-type:hover {
+  background-color: #adadad;
+}
+.alert-dialog-buttons button:last-of-type {
+  background-color: #375428; /* Blue background for continue button */
+  color: #fff;
+}
+.alert-dialog-buttons button:last-of-type:hover {
+  background-color: #29411d;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .alert-dialog-content {
+    padding: 16px;
+    width: 95%;
+  }
+  .alert-dialog-content h4 {
+    font-size: 1rem;
+  }
+  .alert-p {
+    font-size: 0.8rem;
+    margin-left: 0;
+    text-wrap: wrap;
+  }
+  .alert-dialog-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .alert-dialog-buttons button {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
