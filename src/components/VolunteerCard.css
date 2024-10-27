@@ -26,8 +26,50 @@
   padding: 20px;
 }
 
+.menu-container {
+  position: relative;
+}
+
 .menu-icon {
-  color: #4a5b33;
+  cursor: pointer;
+  font-size: 15px;
+  color: #375428;
+  /* Additional styling for icon */
+}
+
+.menu-dropdown {
+  width: 150px;
+  position: absolute;
+  top: 30px; /* Adjust this to control the distance between the icon and the popover */
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+.menu-option-edit,
+.menu-option-delete,
+.menu-option-report {
+  padding: 10px 10px; /* Adjust padding as needed */
+  cursor: pointer;
+  white-space: nowrap; /* Prevent text from wrapping */
+  display: block; /* Ensure the padding applies correctly */
+  box-sizing: border-box; /* Include padding in total width */
+}
+
+.menu-option-delete {
+  color: red; /* Specific styling for delete option */
+}
+.menu-option-report {
+  color: red; /* Specific styling for report option */
+}
+/* Hover effects */
+.menu-option-edit:hover,
+.menu-option-delete:hover,
+.menu-option-report:hover {
+  border-radius: 5px; /* Rounded corners */
+  background-color: #f1f1f1; /* Same hover effect for all */
 }
 
 .card-header h3 {

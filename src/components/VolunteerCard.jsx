@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Vibrant from "node-vibrant/lib/bundle";
 import { supabase } from "../supabaseClient";
+import { useLocation } from "react-router-dom";
 import "./VolunteerCard.css";
 
 const lightenColor = (hex, percent) => {
@@ -36,6 +37,34 @@ function VolunteerCard({
   const [bgGradient, setBgGradient] = useState("grey");
   const [likeCount, setLikeCount] = useState(likes || 0);
   const [isLiked, setIsLiked] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [showMenu, setShowMenu] = useState(false); // State to toggle dropdown menu visibility
+  const locations = useLocation();
+
+  const checkAdminStatus = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", "1499178b-d345-45fb-b8b7-b344f14f4981");
+
+      if (error) {
+        throw error;
+      }
+
+      if (data && data.length > 0 && data[0].role === "admin") {
+        setIsAdmin(true);
+      } else {
+        setIsAdmin(false);
+      }
+    } catch (err) {
+      console.error("Error fetching user role:", err);
+    }
+  };
+
+  useEffect(() => {
+    checkAdminStatus();
+  }, []);
 
   useEffect(() => {
     Vibrant.from(imageUrl)
@@ -90,11 +119,65 @@ function VolunteerCard({
     }
   };
 
+  const handleMenuClick = () => {
+    setShowMenu(!showMenu); // Toggle the visibility of the menu
+  };
+
+  const handleEdit = () => {
+    console.log("Edit post", id); // Handle the edit functionality here
+    setShowMenu(false); // Hide the menu after selecting
+  };
+
+  const handleDelete = async () => {
+    try {
+      const { error } = await supabase.from("posts").delete().eq("id", id);
+
+      if (error) throw error;
+
+      console.log("Post deleted", id); // Handle post-deletion logic here
+      setShowMenu(false); // Hide the menu after selecting
+    } catch (err) {
+      console.error("Error deleting post:", err);
+    }
+  };
+
+  const handleReport = () => {
+    console.log("Report post", id); // Handle the report post functionality here
+    setShowMenu(false); // Hide the menu after selecting
+  };
+
+  // Define the valid admin pages
+  const validAdminPages = ["/admindashboard"];
+
   return (
     <div className="card">
       <div className="card-header">
         <h3>{title}</h3>
-        <div className="menu-icon">●●●</div>
+        <div className="menu-container">
+          <div className="menu-icon" onClick={handleMenuClick}>
+            ●●●
+          </div>
+          {showMenu && (
+            <div className="menu-dropdown">
+              {isAdmin && validAdminPages.includes(locations.pathname) ? (
+                <>
+                  <div className="menu-container1" onClick={handleEdit}>
+                    <div className="menu-option-edit" onClick={handleEdit}>
+                      Edit Post
+                    </div>
+                    <div className="menu-option-delete" onClick={handleDelete}>
+                      Delete Post
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div className="menu-option-report" onClick={handleReport}>
+                  Report Post
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
       <br />
       <p>
