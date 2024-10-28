@@ -61,19 +61,22 @@ function EditPostModal({
         placeholder="Description"
       />
       <h4>Location</h4>
-      <textarea
+      <input
+        type="text"
         value={editLocation}
         onChange={(e) => setEditLocation(e.target.value)}
         placeholder="Edit Location"
       />
       <h4>Email</h4>
-      <textarea
+      <input
+        type="text"
         value={editEmail}
         onChange={(e) => setEditEmail(e.target.value)}
         placeholder="Edit Email"
       />
       <h4>Contact Number</h4>
-      <textarea
+      <input
+        type="text"
         value={editContact}
         onChange={(e) => setEditContact(e.target.value)}
         placeholder="Edit Contact Number"

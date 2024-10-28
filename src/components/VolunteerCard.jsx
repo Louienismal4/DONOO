@@ -129,9 +129,7 @@ function VolunteerCard({
   const handleDelete = async () => {
     try {
       const { error } = await supabase.from("posts").delete().eq("id", id);
-
       if (error) throw error;
-
       console.log("Post deleted", id); // Handle post-deletion logic here
       setShowMenu(false); // Hide the menu after selecting
     } catch (err) {
@@ -197,16 +195,14 @@ function VolunteerCard({
             <div className="menu-dropdown">
               {isAdmin && validAdminPages.includes(locations.pathname) ? (
                 <>
-                  <div className="menu-container1" onClick={handleEdit}>
-                    <div className="menu-option-edit" onClick={handleEdit}>
-                      Edit Post
-                    </div>
-                    <div
-                      className="menu-option-delete"
-                      onClick={() => setShowAlertDialog(true)} // Show alert dialog on delete click
-                    >
-                      Delete Post
-                    </div>
+                  <div className="menu-option-edit" onClick={handleEdit}>
+                    Edit Post
+                  </div>
+                  <div
+                    className="menu-option-delete"
+                    onClick={() => setShowAlertDialog(true)} // Show alert dialog on delete click
+                  >
+                    Delete Post
                   </div>
                 </>
               ) : (
